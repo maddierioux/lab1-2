@@ -14,7 +14,7 @@
     <string name="btn7">7</string>
     <string name="btn_clear">C</string>
     <string name="btn0">0</string>
-    <string name="btn1_dot">.</string>
+    <string name="btn_dot">.</string>
     <string name="btn_divide">/</string>
     <string name="btn_equal">=</string>
 </resources>
