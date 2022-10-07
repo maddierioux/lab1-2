@@ -17,4 +17,5 @@
     <string name="btn_dot">.</string>
     <string name="btn_divide">/</string>
     <string name="btn_equal">=</string>
+    <string name="display">Enter calculation</string>
 </resources>
