@@ -125,15 +125,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     result = calculate(text_display.getText().toString());
                     text_display.setText(result);
-                } catch (ScriptException e) {
-                    text_display.setText("Error :(");
+                    text_display.setHint("Enter Calculation");
+                } catch (Exception e) {
+                    text_display.setHint("Error :(");
+                    text_display.setText("");
                 }
-                text_display.setText(result);
                 break;
         };
     }
 
-    private String calculate(String expression) throws ScriptException {
+    private String calculate(String expression) throws Exception {
         String result = engine.eval(expression).toString();
         BigDecimal decimal = new BigDecimal(result);
         return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
