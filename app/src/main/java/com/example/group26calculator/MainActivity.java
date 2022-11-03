@@ -18,14 +18,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView text_display;
 
     //to evaluate expression
-    ScriptEngine engine;
+    Evaluate e;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        engine = new ScriptEngineManager().getEngineByName("rhino");
 
         btn0 = (Button) findViewById(R.id.btn0);
         btn1 = (Button) findViewById(R.id.btn1);
@@ -135,14 +133,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private String calculate(String expression) throws Exception {
-        String result = engine.eval(expression).toString();
-        BigDecimal decimal = new BigDecimal(result);
+        //String result = engine.eval(expression).toString();
+
+        //BigDecimal decimal = new BigDecimal(result);
+
+        BigDecimal decimal = e.calculate(expression);
+
         return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
     }
 
     private void addNumber(String number){
         text_display.setText(text_display.getText()+number);
     }
+
     private void clear_display(){
         text_display.setText("");
     }
